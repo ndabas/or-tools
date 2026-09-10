@@ -6,8 +6,10 @@ inputs:
     type: string
   enable:
     description: "Enable auth (and caching)"
+    # TODO: revert to the line below, temporarily disabled repo-wide.
     # By default, secrets are not passed to workflows triggered from forks, including Dependabot.
-    default: ${{ !(github.event.pull_request.head.repo.fork || github.actor == 'dependabot[bot]') }}
+    # default: ${{ !(github.event.pull_request.head.repo.fork || github.actor == 'dependabot[bot]') }}
+    default: false
   set_cmake_sccache_launcher:
     default: false
   set_home_bazelrc:
